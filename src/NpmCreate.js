@@ -13,28 +13,28 @@ class NpmCreate {
     async create(args) {
         this.args = args;
         this._logger.trace('NpmCreate.create: %s', JSON.stringify(this.args));
-        await this.bench('directory.create', () => {
+        await this.bench('directory.create', async () => {
             return this.directoryCreate();
         });
-        await this.bench('npm.init', () => {
+        await this.bench('npm.init', async () => {
             return this.npmInit();
         });
-        await this.bench('npm.packagejson.update', () => {
+        await this.bench('npm.packagejson.update', async () => {
             return this.npmUpdatePackageJson();
         });
-        await this.bench('npm.install.dev', () => {
+        await this.bench('npm.install.dev', async () => {
             return this.npmDependenciesInstall();
         });
         await this.bench('git.init', async () => {
             return this.gitInit();
         });
-        await this.bench('git.branch.checkout', () => {
+        await this.bench('git.branch.checkout', async () => {
             return this.gitCheckoutBranch();
         });
         await this.bench('git.flow.init', async () => {
             return this.gitFlowInit();
         });
-        await this.bench('npm.install.dependencies', () => {
+        await this.bench('npm.install.dependencies', async () => {
             return this.npmDependenciesInstall(true);
         });
     }

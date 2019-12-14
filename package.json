@@ -3,12 +3,18 @@
   "version": "0.0.1",
   "description": "Library for NPM initializers",
   "main": "src/index.js",
-  "scripts": {
+  "publishConfig": {
+    "access": "public"
   },
-  "files": [
-    "src/*.js"
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "keywords": [
+    "npm",
+    "lib",
+    "init"
   ],
-  "keywords": [],
   "author": "Stéphane ERARD <serard06@protonmail.com>",
   "license": "ISC",
   "devDependencies": {

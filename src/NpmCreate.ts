@@ -20,19 +20,19 @@ export class NpmCreate {
 
         this._logger.trace('NpmCreate.create: %s', JSON.stringify(this.args));
 
-        await this.bench('directory.create', () => {
+        await this.bench('directory.create', async () => {
             return this.directoryCreate();
         });
 
-        await this.bench('npm.init', () => {
+        await this.bench('npm.init', async () => {
             return this.npmInit();
         });
 
-        await this.bench('npm.packagejson.update', () => {
+        await this.bench('npm.packagejson.update', async () => {
             return this.npmUpdatePackageJson();
         });
 
-        await this.bench('npm.install.dev', () => {
+        await this.bench('npm.install.dev', async () => {
             return this.npmDependenciesInstall();
         });
 
@@ -40,7 +40,7 @@ export class NpmCreate {
             return this.gitInit();
         });
 
-        await this.bench('git.branch.checkout', () => {
+        await this.bench('git.branch.checkout', async () => {
             return this.gitCheckoutBranch();
         });
 
@@ -48,7 +48,7 @@ export class NpmCreate {
             return this.gitFlowInit();
         });
 
-        await this.bench('npm.install.dependencies', () => {
+        await this.bench('npm.install.dependencies', async () => {
             return this.npmDependenciesInstall(true);
         });
 
