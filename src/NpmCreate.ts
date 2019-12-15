@@ -6,6 +6,7 @@ import {spawn} from "promisify-child-process";
 import * as mkdirp from "mkdirp-promise";
 import {semverToString} from "./Util";
 import * as deepmerge from "deepmerge";
+import * as NpmSemVer from "./NpmSemVer"
 
 export class NpmCreate {
     private _logger: log4js.Logger;
@@ -60,7 +61,7 @@ export class NpmCreate {
         try {
             const result = await fn();
             const end = new Date();
-            const diffSeconds = (<any>end - <any>start) * 1000;
+            const diffSeconds = (<any>end - <any>start) / 1000;
             this._logger.info('%s end, took: %s seconds', goal, diffSeconds);
             return result;
         } catch (e) {
@@ -81,7 +82,7 @@ export class NpmCreate {
         name.push(this.args.name);
 
         jsonContent.name = name.join('/');
-        jsonContent.version = semverToString(this.args.version);
+        jsonContent.version = semverToString(<NpmSemVer.NpmSemVer>this.args.version);
 
         if (this.args.packageJson) {
             jsonContent = deepmerge(jsonContent, this.args.packageJson, {clone: true})

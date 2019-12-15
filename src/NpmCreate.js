@@ -44,7 +44,7 @@ class NpmCreate {
         try {
             const result = await fn();
             const end = new Date();
-            const diffSeconds = (end - start) * 1000;
+            const diffSeconds = (end - start) / 1000;
             this._logger.info('%s end, took: %s seconds', goal, diffSeconds);
             return result;
         }

@@ -14,19 +14,24 @@ export function dependencyToJson(dependency: NpmDependency): { name: string, ver
 }
 
 export function semverToString(version: NpmSemVer): string {
-    let v = `${version.major}`;
+    if (version.major || version.minor || version.patch) {
+        let v = `${version.major}`;
 
-    if (undefined !== version.minor)
-        v += `.${version.minor}`;
+        if (undefined !== version.minor)
+            v += `.${version.minor}`;
 
-    if (undefined !== version.patch)
-        v += `.${version.patch}`;
+        if (undefined !== version.patch)
+            v += `.${version.patch}`;
 
-    if (undefined !== version.prefix)
-        v = version.prefix + v;
+        if (undefined !== version.prefix)
+            v = version.prefix + v;
 
-    if (undefined !== version.suffix)
-        v += '-' + version.suffix;
+        if (undefined !== version.suffix)
+            v += '-' + version.suffix;
 
-    return v;
+        return v;
+    } else if ('*' === version.prefix) {
+        return '*';
+    }
+
 }

@@ -4,7 +4,7 @@ import {NpmScript} from "./NpmScript";
 import {NpmDirectory} from "./NpmDirectory";
 
 export interface NpmPackage {
-    version?: NpmSemVer,
+    version?: NpmSemVer | string,
     name?: string,
     scope?: string,
     description?: string,
@@ -20,4 +20,5 @@ export interface NpmPackage {
     license?: string,
     publishConfig?: { access?: string, repository?: string }
     repository?: { type?: string, url?: string }
+    files?: Array<string>
 }

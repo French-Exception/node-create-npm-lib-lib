@@ -2,7 +2,7 @@
   "compileOnSave": true,
   "compilerOptions": {
     "newLine": "LF",
-    "rootDir": "src",
+    "rootDir": "./src",
     "sourceMap": true,
     "target": "es2020",
     "module": "commonjs",

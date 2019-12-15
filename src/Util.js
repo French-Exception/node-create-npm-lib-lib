@@ -11,16 +11,21 @@ function dependencyToJson(dependency) {
 }
 exports.dependencyToJson = dependencyToJson;
 function semverToString(version) {
-    let v = `${version.major}`;
-    if (undefined !== version.minor)
-        v += `.${version.minor}`;
-    if (undefined !== version.patch)
-        v += `.${version.patch}`;
-    if (undefined !== version.prefix)
-        v = version.prefix + v;
-    if (undefined !== version.suffix)
-        v += '-' + version.suffix;
-    return v;
+    if (version.major || version.minor || version.patch) {
+        let v = `${version.major}`;
+        if (undefined !== version.minor)
+            v += `.${version.minor}`;
+        if (undefined !== version.patch)
+            v += `.${version.patch}`;
+        if (undefined !== version.prefix)
+            v = version.prefix + v;
+        if (undefined !== version.suffix)
+            v += '-' + version.suffix;
+        return v;
+    }
+    else if ('*' === version.prefix) {
+        return '*';
+    }
 }
 exports.semverToString = semverToString;
 //# sourceMappingURL=Util.js.map
