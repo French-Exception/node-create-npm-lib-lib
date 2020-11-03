@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NpmCreate = void 0;
 const path = require("path");
 const fs = require("fs-extra");
 const promisify_child_process_1 = require("promisify-child-process");

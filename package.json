@@ -1,5 +1,5 @@
 {
-  "name": "@frenchex/create-npm-lib-lib",
+  "name": "@frenchex/create-npm-lib-lib.ts",
   "version": "0.0.2",
   "description": "Library for NPM initializers",
   "main": "src/index.js",
@@ -7,8 +7,15 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc"
+    "configure": "frenchex-config init",
+    "watch": "tsc -w",
+    "build": "tsc",
+    "test.unit": "mocha -r ts-node/register -r source-map-support/register test/**/*.ts",
+    "cover": "nyc mocha -r ts-node/register -r source-map-support/register test/**/*.ts",
+    "bump.patch": "release-it patch --ci",
+    "bump.minor": "release-it minor --ci",
+    "bump.major": "release-it major --ci",
+    "release": "npm publish"
   },
   "keywords": [
     "npm",
@@ -18,7 +25,14 @@
   "author": "Stéphane ERARD <serard06@protonmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^12.12.17"
+    "@types/node": "^13.9.3",
+    "bump": "^0.2.5",
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.2",
+    "nyc": "^15.0.1",
+    "source-map-support": "^0.5.16",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "@log4js-node/log4js-api": "^1.0.2",

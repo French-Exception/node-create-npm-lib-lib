@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.semverToString = exports.dependencyToJson = exports.npmPackageNameToString = void 0;
 function npmPackageNameToString(givenPackage) {
     return (givenPackage.scope ? '@' + givenPackage.scope + '/' : '') + givenPackage.name;
 }

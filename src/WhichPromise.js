@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.which = void 0;
 const _which = require("which");
 async function which(name) {
     return new Promise((resolve, reject) => {
