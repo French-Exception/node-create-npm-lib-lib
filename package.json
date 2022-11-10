@@ -27,7 +27,7 @@
   "devDependencies": {
     "@types/node": "^13.9.3",
     "bump": "^0.2.5",
-    "mocha": "^7.1.1",
+    "mocha": "^10.1.0",
     "nodemon": "^2.0.2",
     "nyc": "^15.0.1",
     "source-map-support": "^0.5.16",
